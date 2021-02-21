@@ -8,9 +8,13 @@ public class Wipe : MonoBehaviour
 
     public Vector2 stickPos;
 
+    public GameObject bigTear;
+    public GameObject smearTear;
+
+    public AudioSource squeak;
+    public AudioSource squeak2;
 
 
-    
     public bool canTickUp;
     public int wipe = 0;
     public bool rightEyeClean;
@@ -60,17 +64,55 @@ public class Wipe : MonoBehaviour
         else if (stickPos.x < 0.5 && canTickUp == false)
         {
             canTickUp = true;
-            wipe = wipe + 1; 
+            CountUp();
         }
 
-        if (wipe == 10)
-        {
-            Debug.Log("clean right eye");
-            rightEyeClean = true;
-        }
+       
     }
 
+    private void CountUp()
+    {
+        wipe = wipe + 1;
+        switch (wipe)
+        {
+            case 6:
+                squeak2.Play();
+                smearTear.SetActive(false);
+                Debug.Log("clean right eye");
+                rightEyeClean = true;
+                //Todo 
 
+                break;
+            case 5:
+                squeak2.Play();
+                //Todo 
+
+                break;
+            case 4:
+                squeak.Play();
+                //Todo 
+
+                break;
+            case 3:
+                squeak2.Play();
+                bigTear.SetActive(false);
+                smearTear.SetActive(true);
+                //Todo 
+
+                break;
+            case 2:
+                squeak.Play();
+                //Todo 
+
+                break;
+            case 1:
+                squeak2.Play();
+                //Todo 
+
+                break;
+        }
+
+    }
     
     private void OnEnable()
     {
