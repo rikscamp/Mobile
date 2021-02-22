@@ -27,12 +27,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         textDisplay.GetComponent<TextMeshProUGUI>().text =":0" + secondsLeft;
-        randomGame = Random.Range(1, 3);
+        
         Debug.Log(randomGame);
     }
 
     private void Update()
     {
+        if (secondsLeft == 5)
+        {
+            PickNextGame();
+        }
         if (takingAway == false && secondsLeft > 0)
         {
             StartCoroutine(TimerTake());
@@ -58,6 +62,11 @@ public class GameManager : MonoBehaviour
             wipeLevel.SetActive(true);
         }
 
+    }
+
+    void PickNextGame()
+    {
+        randomGame = Random.Range(1, 3);
     }
 
     IEnumerator TimerTake()

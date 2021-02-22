@@ -53,7 +53,6 @@ public class Punch : MonoBehaviour
         if (takingAway == false && secondsLeft > 0)
         {
             StartCoroutine(TimerTake());
-
         }
     }
 
@@ -63,41 +62,14 @@ public class Punch : MonoBehaviour
         anim.SetTrigger("isPunch");
         switch (hits)
         {
-            case 27:
+            
+            case 20:
                 war.SetTrigger("isPunched2");
                 Debug.Log("Win");
                 sock.SetActive(false);
                 anim.SetBool("isWin", true);
                 //Todo 
                 win = true;
-                break;
-            case 26:
-                war.SetTrigger("isPunched2");
-                Debug.Log(hits);
-                break;
-            case 25:
-                war.SetTrigger("isPunched");
-                Debug.Log(hits);
-                break;
-            case 24:
-                war.SetTrigger("isPunched2");
-                Debug.Log(hits);
-                break;
-            case 23:
-                war.SetTrigger("isPunched");
-                Debug.Log(hits);
-                break;
-            case 22:
-                war.SetTrigger("isPunched2");
-                Debug.Log(hits);
-                break;
-            case 21:
-                war.SetTrigger("isPunched");
-                Debug.Log(hits);
-                break;
-            case 20:
-                war.SetTrigger("isPunched2");
-                Debug.Log(hits);
                 break;
             case 19:
                 war.SetTrigger("isPunched");

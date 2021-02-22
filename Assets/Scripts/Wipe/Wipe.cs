@@ -44,7 +44,7 @@ public class Wipe : MonoBehaviour
     {
         
         //Debug.Log(canTickUp);
-        Debug.Log(wipe);
+        //Debug.Log(wipe);
         //Debug.Log(stickPos);
         
 

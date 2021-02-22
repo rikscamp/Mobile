@@ -44,8 +44,8 @@ public class Wipe2 : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(canTickUp);
-        Debug.Log(wipe);
+        //Debug.Log(canTickUp);
+        //Debug.Log(wipe);
         //Debug.Log(stickPos);
 
 
