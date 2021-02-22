@@ -62,7 +62,7 @@ public class Wipe2 : MonoBehaviour
 
 
         }
-        else if (stickPos.x > -0.5 && canTickUp == false)
+        else if (stickPos.x > -0.4 && canTickUp == false)
         {
             canTickUp = true;
             CountUp();
@@ -75,17 +75,12 @@ public class Wipe2 : MonoBehaviour
     {
         wipe = wipe + 1;
         switch (wipe)
-        {
-            case 6:
-                squeak2.Play();
+        {          
+            case 5:
+                squeak.Play();
                 smearTear.SetActive(false);
                 Debug.Log("clean right eye");
                 leftEyeClean = true;
-                //Todo 
-
-                break;
-            case 5:
-                squeak.Play();
                 //Todo 
 
                 break;

@@ -64,7 +64,7 @@ public class Punch : MonoBehaviour
         {
             
             case 20:
-                war.SetTrigger("isPunched2");
+                war.SetTrigger("isGameEnd");
                 Debug.Log("Win");
                 sock.SetActive(false);
                 anim.SetBool("isWin", true);
@@ -177,6 +177,8 @@ public class Punch : MonoBehaviour
             punchHolder.SetActive(false);
             secondsLeft = 5;
             hits = 0;
+            sock.SetActive(true);
+            war.SetTrigger("isReset");
             win = false;
             
 
@@ -186,8 +188,10 @@ public class Punch : MonoBehaviour
             Debug.Log("Loser!");
             mainMenu.SetActive(true);
             punchHolder.SetActive(false);
+            war.SetTrigger("isReset");
             secondsLeft = 5;
             hits = 0;
+            
             
 
             //Todo destroy a life
