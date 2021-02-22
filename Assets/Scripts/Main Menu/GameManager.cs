@@ -6,6 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject textDisplay;
+    public GameObject hintDisplay;
 
     //Levels
     public GameObject punchLevel;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         if (secondsLeft == 5)
         {
             PickNextGame();
+            
         }
         if (takingAway == false && secondsLeft > 0)
         {
@@ -43,25 +45,56 @@ public class GameManager : MonoBehaviour
 
         }
 
+        if(secondsLeft == 3)
+        {
+            GiveHint();
+        }
+
+        if (secondsLeft == 0)
+        {
+            LoadGame();
+        }
        
 
-        if (secondsLeft == 0 && randomGame == 1)
+        
+
+    }
+    void GiveHint()
+    {
+        if (randomGame == 1)
+        {
+            hintDisplay.SetActive(true);
+            hintDisplay.GetComponent<TextMeshProUGUI>().text = "Punch";
+            
+        }
+        if (randomGame == 2)
+        {
+            hintDisplay.SetActive(true);
+            hintDisplay.GetComponent<TextMeshProUGUI>().text = "Console";
+        }
+    }
+
+    void LoadGame()
+    {
+        if (randomGame == 1)
         {
             Debug.Log("woo");
-            
+
             mainMenu.SetActive(false);
+            hintDisplay.SetActive(false);
             secondsLeft = 5;
             punchLevel.SetActive(true);
         }
-        if (secondsLeft == 0 && randomGame == 2)
+        if (randomGame == 2)
         {
             Debug.Log("too");
 
             mainMenu.SetActive(false);
+            hintDisplay.SetActive(false);
             secondsLeft = 5;
             wipeLevel.SetActive(true);
-        }
 
+        }
     }
 
     void PickNextGame()
